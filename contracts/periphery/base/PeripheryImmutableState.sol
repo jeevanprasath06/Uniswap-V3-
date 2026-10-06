@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "../interfaces/IPeripheryImmutableState.sol";
+
+/// @title Immutable state
+/// @notice Immutable state used by periphery contracts
+abstract contract PeripheryImmutableState is IPeripheryImmutableState {
+    /// @inheritdoc IPeripheryImmutableState
+    address public override immutable factory;
+    /// @inheritdoc IPeripheryImmutableState
+    address public override immutable WETH9;
+
+    constructor(address _factory, address _WETH9) {
+        factory = _factory;
+        WETH9 = _WETH9;
+    }
+}
